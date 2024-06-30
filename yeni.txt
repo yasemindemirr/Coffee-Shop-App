@@ -1,0 +1,409 @@
+#include <iostream>
+#include <string>
+#include "windows.h"
+
+using namespace std;
+static float total_price=0;
+bool controller;
+
+float sum_price(float _price) {
+    total_price+=_price;
+    return total_price;
+}
+class Product
+{
+    public:
+    
+    string name, type, description;
+    float price;
+    int stock;
+    
+    Product(string _name, string _type, float _price,  int _stock, string _description = "")
+	{
+		name = _name;
+		type = _type;
+		price = _price;
+		stock = _stock;
+		description = _description;
+	}
+
+	void show() {
+		cout << name << ": " << price << "$" << "  (" << description << ")" << endl;
+	}
+	
+	int stock_down(int number_of_times)
+	{
+		if (stock - number_of_times >= 0)
+		{
+			stock -= number_of_times;
+			
+			controller = true;
+
+			return stock;
+		}
+		else
+		{	
+			cout << "\n\n";
+			Sleep(2000);
+			cout << "	  " << name << " is out of stock" << endl;
+			cout << "	  Current stock is : " << stock << endl << endl;
+			
+			controller = false;
+
+			return 0;
+		}
+	}	
+};
+
+int main()
+{
+    //Cultural Menu Products
+    
+    //Saturday(Mexico and Japan)
+    Product chamoyada("Chamoyada","Saturday", 15, 50,"Chamoyada is a sweet and spicy Mexican cuisine drink prepared with grated ice and fruits, flavored with chamoy.");
+    Product bionico("Bionico","Saturday", 20, 50,"It is a fruit salad consisting of different fruits chopped into small cubes, soaked in cream and topped with granola, grated coconut, raisins and honey.");
+    Product japanese_cheescake("Japanese Cheescake","Saturday", 20, 50,"It is also known as souffle-style cheesecake, cotton cheesecake or light cheesecake.");
+    Product matcha_tea("Matcha Tea","Saturday", 10, 50,"Matcha is a ground form of specially grown green tea found in classic Japanese tea ceremonies.");
+    
+    //Sunday(India and Spain)
+    Product gajor_ka_doodh("Gajor ka Doodh","Sunday", 25, 50,"A drink prepared with milk,dried nuts, carrots and various spices.");
+    Product shahi_tukda("Shahi Tukda","Sunday", 25, 50,"A traditional syrupy toasted bread dessert of India.");
+    Product horchata("Horchata","Sunday", 15, 50,"A soft drink whose main ingredient is rice and in which there are almonds, dried nuts.");
+    Product churros("Churros","Sunday", 10, 50,"It is a fried dumpling covered with cinnamon and sugar and served.");
+    
+    
+    cout<<"Welcome to GAEGY!\n "<<endl;
+    
+    while(true)
+    {
+        cout << "***   		 Cultural Menu		   ***" << endl << endl;
+        
+        cout << "	  1) Saturday" << endl;
+		cout << "	  2) Sunday" << endl<<endl;
+
+		cout << "Choice: ";
+		cin >> choice;
+		cout << endl;
+		
+		if (choice == "1") 
+		{
+		    cout<<"Japan Menu:\n";
+		    cout << "	  1)";  japanese_cheescake.show();
+			cout << "	  2)"; matcha_tea.show();
+			cout<<"Mexico Menu:\n";
+			cout << "	  3)"; chamoyada.show();
+			cout << "	  4)"; bionico.show();
+			cout << endl;
+			
+			cout << "Select one : ";
+			cin >> choice;
+			
+			if(choice=="1")
+			{
+			    cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				japanese_cheescake.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * japanese_cheescake.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+			else if (choice == "2")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				matcha_tea.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * matcha_tea.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+			else if (choice == "3")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				chamoyada.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * chamoyada.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+			else if (choice == "4")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				bionico.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * bionico.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+			
+			
+			
+			
+			
+        }
+        
+        else if 
+        {
+            cout<<"Spain Menu:\n";
+            cout << "	  1)"; horchata.show();
+			cout << "	  2)"; churros.show();
+			cout<<"India Menu:\n";
+			cout << "	  3)"; gajor_ka_doodh.show();
+			cout << "	  4)"; shahi_tukda.show();
+			cout << endl;
+            
+            cout << "Select one : ";
+			cin >> choice;
+			
+			if (choice == "1")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				horchata.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * horchata.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+            else if (choice == "2")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				churros.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * churros.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+            else if (choice == "3")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				gajor_ka_doodh.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * gajor_ka_doodh.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+            else if (choice == "4")
+			{	
+				cout << "\n How many: ";
+				cin >> choice_int;
+				cout << endl;
+				cout << "\n	  product is adding..." << endl;
+				shahi_tukda.stock_down(choice_int);
+				Sleep(2000);
+				if (controller == true)
+				{
+					sum_price(choice_int * shahi_tukda.price);
+					cout << "\n	  Total price is: " << total_price << "$\n\n" << endl;
+				}
+				Sleep(1000);
+				cout << "Will you continue with the order (1) or proceed to the payment part? (2): ";
+				cin >> choice;
+				cout << endl;
+
+				if (choice == "1")
+				{
+					Sleep(1000);
+					continue;
+				}
+				else if (choice == "2")
+				{
+					cout << "\n		PAYMENT PART - PAYMENT PART - PAYMENT PART - PAYMENT PART" << endl;
+					break;
+				}
+				else
+				{
+					cout << "Please select 1 or 2" << endl;
+					continue;
+				}
+			}
+		}
+        else
+        {
+            cout<<"Invalid request. Please choose between 1-3. "<<endl<<endl;
+            continue;
+        }
+        
+		
+		
+		
+    }
+    
+    
+    
+    
+    
+}

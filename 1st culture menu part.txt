@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //asking for user name
+    string userName;
+    cout << "Please enter your name: ";
+    cin >> userName;
+    
+    cout << "Welcome to GAEGY " << userName << "!\n\n";
+    
+    //asking to users their thoughts and requests or complaint
+    string userThoughts;
+    cout << "The thoughts of our precious customers are very necessary to us. Share any wishes, requests, or complaints with us:\n";
+    cout<<"*********************************\n";
+    //cout<<"                                   ";
+    //cout<<"                                   ";
+    cin >> userThoughts;
+    cout<<"                                     ";
+    cout<<"                                     ";
+    cout<<"\n*********************************\n";
+    
+    
+    cout << "Thank you for sharing your thoughts with us. We are going to take note of every details that you wrote.\n\n";
+
+    //asking day
+    cout << "What day is it today?\n";
+    int day;
+    cout << "[1]Monday\n";
+    cout << "[2]Tuesday\n";
+    cout << "[3]Wednesday\n";
+    cout << "[4]Thursday\n";
+    cout << "[5]Friday\n";
+    cout << "[6]Saturday\n";
+    cout << "[7]Sunday\n";
+    cout << "Select the number of today: ";
+    cin >> day;
+    
+    if (day > 7 || day < 1) {
+        cout << "Invalid choice!\n\n";
+        return 0;
+    }
+    else if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
+        cout << "Return main menu!\n\n";
+        return 0;
+    }
+    else if (day == 6 || day == 7) {
+        cout << "\nLet's go to cultural menu!\n\n";
+    }

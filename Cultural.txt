@@ -1,0 +1,212 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //asking for user name
+    string userName;
+    cout << "Please enter your name: ";
+    cin >> userName;
+    
+    cout << "Welcome to GAEGY " << userName << "!\n\n";
+    
+    //asking to users their thoughts and requests or complaint
+    string userThoughts;
+    cout << "The thoughts of our precious customers are very necessary to us. Share any wishes, requests, or complaints with us:\n";
+    cout<<"*********************************\n";
+    //cout<<"                                   ";
+    //cout<<"                                   ";
+    cin >> userThoughts;
+    cout<<"                                     ";
+    cout<<"                                     ";
+    cout<<"\n*********************************\n";
+    
+    
+    cout << "Thank you for sharing your thoughts with us. We are going to take note of every details that you wrote.\n\n";
+
+    //asking day
+    cout << "What day is it today?\n";
+    int day;
+    cout << "[1]Monday\n";
+    cout << "[2]Tuesday\n";
+    cout << "[3]Wednesday\n";
+    cout << "[4]Thursday\n";
+    cout << "[5]Friday\n";
+    cout << "[6]Saturday\n";
+    cout << "[7]Sunday\n";
+    cout << "Select the number of today: ";
+    cin >> day;
+    
+    if (day > 7 || day < 1) {
+        cout << "Invalid choice!\n\n";
+        return 0;
+    }
+    else if (day == 1 || day == 2 || day == 3 || day == 4 || day == 5) {
+        cout << "Return main menu!\n\n";
+        return 0;
+    }
+    else if (day == 6 || day == 7) {
+        cout << "\nLet's go to cultural menu!\n\n";
+    }
+
+    // Cultural menu for Saturday and Sunday
+    if (day == 6 || day == 7) {
+        int select;
+        cout << "CULTURAL MENU: ";
+        cultureloop:
+        if (day == 6) {
+            cout << "\n[1] Japan\n";
+            cout << "[2] Mexico\n";
+        } else {
+            cout << "\n[1] Spain\n";
+            cout << "[2] India\n";
+        }
+        cout << "Select the number of the culture you want to experience: ";
+        cin >> select;
+        
+        //Saturday
+        saturdayloop:
+        if (day == 6) {
+            int Japan;
+            string JapanChoice;
+            if (select == 1) {
+                cout << "\nJapan menu:\n";
+                cout << "[1] Japanese Cheesecake\t\t\t$20\n";
+                cout<<"(It is also known as souffle-style cheesecake, cotton cheesecake or light cheesecake)\n\n";
+                cout << "[2] Matcha Tea\t\t\t$10\n";
+                cout<<"(Matcha is a ground form of specially grown green tea found in classic Japanese tea ceremonies.)\n";
+                cout<<"Select which one you want: (1/2)\n ";
+                cin>>Japan; 
+                
+                //back1:
+                cout<<"Anything you want more? (Y/N)\n ";
+                cin>>JapanChoice;
+                
+                switch(JapanChoice[0]){
+                    case 'Y':
+                    case 'y':
+                    goto cultureloop;
+                    break;
+                    case 'N':
+                    case 'n':
+                    cout<<"Do you want to get something from main menu? If you want back to main menu...\n";
+                    break;
+                    default:
+                     cout << "Invalid input!" << endl;
+                     goto saturdayloop;
+                    break;
+                }
+                
+                
+            } else if (select == 2) {
+                int Mexico;
+                string MexicoChoice;
+                cout << "\nMexico menu:\n";
+                cout << "[1] Chamoyada\t\t\t$15\n";
+                cout<<"(Chamoyada is a sweet and spicy Mexican cuisine drink prepared with grated ice and fruits, flavored with chamoy.)\n\n";
+                cout << "[2] Bionico\t\t\t$20\n";
+                cout<<"(It is a fruit salad consisting of different fruits chopped into small cubes, soaked in cream and topped with granola, grated coconut, raisins and honey.)\n";
+                cout<<"Select which one you want: (1/2)\n ";
+                cin>>Mexico; 
+                
+                back2:
+                cout<<"Anything you want more? (Y/N)\n ";
+                cin>>MexicoChoice;
+                
+                switch(MexicoChoice[0]){
+                    case 'Y':
+                    case 'y':
+                    goto cultureloop;
+                    break;
+                    case 'N':
+                    case 'n':
+                    cout<<"Do you want to get something from main menu? If you want back to main menu...\n";
+                    break;
+                    default:
+                     cout << "Invalid input!" << endl;
+                     goto back2;
+                    break;
+                }
+            
+                
+            } 
+            else {
+                cout << "\nInvalid choice!\n\n";
+                return 0;
+            }
+            
+            
+           
+        }
+        //Sunday 
+        //sundayloop:
+        else {
+            if (select == 1) {
+                int Spain;
+                string SpainChoice;
+                cout << "\nSpain menu:\n";
+                cout << "[1] Horchata\t\t\t$15\n";
+                cout<<"(A soft drink whose main ingredient is rice and in which there are almonds, dried nuts)\n\n";
+                cout << "[2] Churros\t\t\t$10\n";
+                cout<<"(It is a fried dumpling covered with cinnamon and sugar and served)\n";
+                cout<<"Select which one you want: (1/2)\n ";
+                cin>>Spain; 
+                
+                back3:
+                cout<<"Anything you want more? (Y/N)\n ";
+                cin>>SpainChoice;
+                
+                switch(SpainChoice[0]){
+                    case 'Y':
+                    case 'y':
+                    //goto sundayloop;
+                    break;
+                    case 'N':
+                    case 'n':
+                    cout<<"Do you want to get something from main menu? If you want back to main menu...\n";
+                    break;
+                    default:
+                     cout << "Invalid input!" << endl;
+                     goto back3;
+                    break;
+                }
+            } else if (select == 2) {
+                int India;
+                string IndiaChoice;
+                cout << "\nIndia menu:\n";
+                cout << "[1] Gajor ka Doodh\t\t\t$25\n";
+                cout<<"(A drink prepared with milk,dried nuts, carrots and various spices)\n\n";
+                cout << "[2] Shahi Tukda\t\t\t$25\n";
+                cout<<"(A traditional syrupy toasted bread dessert of India)\n";
+                cout<<"Select which one you want: (1/2)\n ";
+                cin>>India; 
+                
+                back4:
+                cout<<"Anything you want more? (Y/N)\n ";
+                cin>>IndiaChoice;
+                
+                switch(IndiaChoice[0]){
+                    case 'Y':
+                    case 'y':
+                    //goto sundayloop;
+                    break;
+                    case 'N':
+                    case 'n':
+                    cout<<"Do you want to get something from main menu? If you want back to main menu...\n";
+                    break;
+                    default:
+                     cout << "Invalid input!" << endl;
+                     goto back4;
+                    break;
+                }
+                
+            } else {
+                cout << "\nInvalid choice!\n\n";
+                return 0;
+            }
+        }
+    }
+
+    return 0;
+}

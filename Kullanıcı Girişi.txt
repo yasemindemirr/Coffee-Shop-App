@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+//LOG IN PART 
+
+int main () 
+{
+    first:
+    cout << "1. Sign up"  << endl;
+    cout << "2. Log in" << endl;
+    cout << "1 or 2" << endl;
+
+    string username;
+      int systempassword = 123;
+    int g;
+    cin >> g;
+    if (g == 1)
+    {
+        string username;
+        int password;
+        cout << "Please enter your user name" << endl;
+        cin >> username;
+        cout << "The password that gives you from the system: ";
+        cout << systempassword;
+        cout<<endl;
+        cout << "Membership successfully completed, please log in"<<endl<<endl;
+        goto first;
+    }
+    else if (g == 2) 
+    {
+        cout <<"\nPlase enter your user name" << endl;
+        cin >> username;
+        cout << "Dear " << username << " ,"<<endl;
+        cout<<"Welcome back again\n "<<endl;
+
+            int trying = 3;
+        loop:
+            //Asking for determined password from user
+            int testingPassword;
+            cout <<"Please enter password: " << endl;
+            cin >> testingPassword;
+
+            if (testingPassword == systempassword) {
+                cout << "Dear " <<username<< "," <<endl;
+                cout<< "Welcome to GAEGY!" << endl;
+            }
+            else if (trying == 1) {
+                cout << "\nPassword is wrong. You have no trials to try. The program will close...\n";
+            }
+            else {
+                cout << "Password is wrong. You have " << trying - 1 << " trials to left..." << endl;
+                trying--;
+                goto loop;
+                return 0;
+            }
+    }
+
+    else
+    {
+        cout<<"\nInvalid number! Enter 1 or 2!\n "<<endl;
+        goto first;
+    }
+
+}
